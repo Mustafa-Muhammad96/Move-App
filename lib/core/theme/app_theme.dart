@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news/core/theme/app_colors.dart';
+import 'app_colors.dart';
 
 class AppTheme {
   // ignore: non_constant_identifier_names
   static ThemeData CustomeDarkTheme = ThemeData(
-    scaffoldBackgroundColor: AppColors.backgroundDark.withValues(alpha: 0.5),
+    scaffoldBackgroundColor: AppColors.backgroundDark.withOpacity(0.5),
 
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.black,
@@ -17,12 +17,6 @@ class AppTheme {
         //color: AppColors.primary,
       ),
     ),
-
-    // floatingActionButtonTheme: FloatingActionButtonThemeData(
-    //   //backgroundColor: AppColors.primary,
-    //   foregroundColor: AppColors.white,
-    //   // shape: CircleBorder(side: BorderSide(width: 5, color: AppColors.white)),
-    // ),
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(
         fontSize: 16,

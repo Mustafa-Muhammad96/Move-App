@@ -1,0 +1,11 @@
+{
+  "email": "البريد الإلكتروني",
+  "password": "كلمة السر",
+  "name": "الاسم",
+  "phone": "رقم الهاتف",
+  "login": "تسجيل دخول",
+  "loginWithGoogle": "تسجيل الدخول بحساب جوجل",
+  "register": "انشاء حساب",
+  "createAccount": "‘نشاء حساب",
+  "forgetPassword": "نسيت كلمة السر"
+}
