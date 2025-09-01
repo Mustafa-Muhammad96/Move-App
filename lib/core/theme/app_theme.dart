@@ -4,7 +4,7 @@ import 'app_colors.dart';
 class AppTheme {
   // ignore: non_constant_identifier_names
   static ThemeData CustomeDarkTheme = ThemeData(
-    scaffoldBackgroundColor: AppColors.backgroundDark.withOpacity(0.5),
+    scaffoldBackgroundColor: AppColors.backgroundDark.withValues(alpha: 0.5),
 
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.black,
@@ -39,7 +39,7 @@ class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        //backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.yellow,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     ),
