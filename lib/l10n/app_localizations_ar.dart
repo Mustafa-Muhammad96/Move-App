@@ -30,6 +30,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loginWithGoogle => 'تسجيل الدخول بحساب جوجل';
 
   @override
+
   String get register => 'إنشاء حساب';
 
   @override
@@ -50,4 +51,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get invalidEmail => 'بريد إلكتروني غير صالح';
+  String get register => 'انشاء حساب';
+
+  @override
+  String get createAccount => '‘نشاء حساب';
+
+  @override
+  String get forgetPassword => 'نسيت كلمة السر';
 }

@@ -5,7 +5,7 @@ class AppTheme {
   // ignore: non_constant_identifier_names
   static ThemeData CustomeDarkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.backgroundDark,
-
+    scaffoldBackgroundColor: AppColors.backgroundDark.withValues(alpha: 0.5),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.black,
       foregroundColor: AppColors.primary,
@@ -42,6 +42,7 @@ class AppTheme {
         padding: EdgeInsets.symmetric(vertical: 12),
         foregroundColor: AppColors.black,
         backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.yellow,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     ),

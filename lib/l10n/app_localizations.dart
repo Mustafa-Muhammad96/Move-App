@@ -181,6 +181,7 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid Email'**
   String get invalidEmail;
+
 }
 
 class _AppLocalizationsDelegate

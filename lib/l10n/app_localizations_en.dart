@@ -15,9 +15,11 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
+
   String get confirmPassword => 'Confirm Password';
 
   @override
+
   String get name => 'Name';
 
   @override
@@ -38,6 +40,7 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get forgetPassword => 'Forget Password';
 
+
   @override
   String get alreadyHaveAccount => 'Already Have Account ?';
 
@@ -50,4 +53,5 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidEmail => 'Invalid Email';
+
 }
