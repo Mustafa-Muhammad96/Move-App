@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'package:movie_app/l10n/app_localizations.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = "/login";
@@ -8,9 +9,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.login)
-      ),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.login)),
     );
   }
 }
