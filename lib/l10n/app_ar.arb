@@ -8,9 +8,10 @@
   "loginWithGoogle": "تسجيل الدخول بحساب جوجل",
   "register": "إنشاء حساب",
   "createAccount": "إنشاء حساب",
-  "forgetPassword": "نسيت كلمة السر",
+  "forgetPassword": "نسيت كلمة السر ؟",
   "alreadyHaveAccount": "لديك حساب بالفعل ؟",
   "avatar": "صورة شخصية",
   "passwordMustBeAtLeast8Characters": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
-  "invalidEmail": "بريد إلكتروني غير صالح"
+  "invalidEmail": "بريد إلكتروني غير صالح",
+  "notHaveAccount": "ليس لديك حساب؟"
 }

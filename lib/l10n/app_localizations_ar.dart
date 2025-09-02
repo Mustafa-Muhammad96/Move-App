@@ -1,5 +1,3 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -30,14 +28,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loginWithGoogle => 'تسجيل الدخول بحساب جوجل';
 
   @override
-
   String get register => 'إنشاء حساب';
 
   @override
   String get createAccount => 'إنشاء حساب';
 
   @override
-  String get forgetPassword => 'نسيت كلمة السر';
+  String get forgetPassword => 'نسيت كلمة السر ؟';
 
   @override
   String get alreadyHaveAccount => 'لديك حساب بالفعل ؟';
@@ -46,11 +43,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get avatar => 'صورة شخصية';
 
   @override
-  String get passwordMustBeAtLeast8Characters =>
-      'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل';
+  String get passwordMustBeAtLeast8Characters => 'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل';
 
   @override
-  // TODO: implement invalidEmail
-  String get invalidEmail => throw UnimplementedError();
+  String get invalidEmail => 'بريد إلكتروني غير صالح';
 
+  @override
+  String get notHaveAccount => 'ليس لديك حساب؟';
 }
