@@ -24,7 +24,9 @@ class DefaultElevatedButton extends StatelessWidget {
         backgroundColor: backgroundColor, // ← اللون المخصص
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
-      child: Text(label, style: text.titleLarge),
+      child: Text(label,
+          style: text.labelLarge!.copyWith(
+              color: Color(0xff282A28), fontWeight: FontWeight.normal)),
     );
   }
 }

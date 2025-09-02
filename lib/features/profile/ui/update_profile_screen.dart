@@ -43,10 +43,11 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: AppColors.backgroundDark,
       appBar: AppBar(
         title: Text(
           "Pick Avatar",
-          style: text.titleLarge!.copyWith(
+          style: text.titleMedium!.copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.normal,
           ),
