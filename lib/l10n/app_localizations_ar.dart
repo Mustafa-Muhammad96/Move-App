@@ -15,6 +15,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get password => 'كلمة السر';
 
   @override
+  String get confirmPassword => 'تأكيد كلمة السر';
+
+  @override
   String get name => 'الاسم';
 
   @override
@@ -27,11 +30,27 @@ class AppLocalizationsAr extends AppLocalizations {
   String get loginWithGoogle => 'تسجيل الدخول بحساب جوجل';
 
   @override
-  String get register => 'انشاء حساب';
+  String get register => 'إنشاء حساب';
 
   @override
-  String get createAccount => '‘نشاء حساب';
+  String get createAccount => 'إنشاء حساب';
 
   @override
-  String get forgetPassword => 'نسيت كلمة السر';
+  String get forgetPassword => 'نسيت كلمة السر ؟';
+
+  @override
+  String get alreadyHaveAccount => 'لديك حساب بالفعل ؟';
+
+  @override
+  String get avatar => 'صورة شخصية';
+
+  @override
+  String get passwordMustBeAtLeast8Characters =>
+      'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل';
+
+  @override
+  String get invalidEmail => 'بريد إلكتروني غير صالح';
+
+  @override
+  String get notHaveAccount => 'ليس لديك حساب؟';
 }

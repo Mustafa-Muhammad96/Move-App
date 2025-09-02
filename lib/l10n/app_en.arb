@@ -1,11 +1,17 @@
 {
   "email": "Email",
   "password": "Password",
+  "confirmPassword": "Confirm Password",
   "name": "Name",
   "phone": "Phone Number",
   "login": "Login",
   "loginWithGoogle": "Login With Google",
   "register": "Register",
   "createAccount": "Create Account",
-  "forgetPassword": "Forget Password"
+  "forgetPassword": "Forget Password ?",
+  "alreadyHaveAccount": "Already Have Account ?",
+  "avatar": "Avatar",
+  "passwordMustBeAtLeast8Characters": "Password must be at least 8 characters",
+  "invalidEmail": "Invalid Email",
+  "notHaveAccount": "Do Not Have Account?"
 }

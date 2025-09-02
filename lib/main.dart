@@ -1,33 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/theme/app_theme.dart';
-import 'package:movie_app/features/forget_password/forget_password.dart';
-import 'package:movie_app/features/profile/ui/update_profile_screen.dart';
+import 'package:movie_app/core/features/home/home_screen.dart';
+import 'package:movie_app/core/features/forget_password/forget_password.dart';
+import 'package:movie_app/core/features/profile/ui/update_profile_screen.dart';
+import 'package:movie_app/core/features/login/login_screen.dart';
+import 'package:movie_app/core/features/register/register_screen.dart';
 import 'package:movie_app/core/routes/routes.dart';
-import 'package:movie_app/l10n/app_localizations.dart';
+import 'package:movie_app/core/theme/app_theme.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'package:movie_app/l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
+  final seen = prefs.getBool("onboarding_seen") ?? false;
+
+  runApp(MyApp(seenOnboarding: seen));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final bool seenOnboarding;
+  const MyApp({super.key, required this.seenOnboarding});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Move-App',
+      title: 'Movie-App',
       debugShowCheckedModeBanner: false,
-      darkTheme: AppTheme.CustomeDarkTheme,
-      themeMode: ThemeMode.dark,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: const Locale('en'),
       routes: {
+        LoginScreen.routeName: (_) => LoginScreen(),
+        RegisterScreen.routeName: (_) => RegisterScreen(),
+        HomeScreen.routeName: (_) => HomeScreen(),
         AppRoutes.UpdateProfileScreen: (_) => UpdateProfileScreen(),
         AppRoutes.ForgetPassword: (_) => ForgetPassword(),
       },
-      initialRoute: AppRoutes.UpdateProfileScreen,
+      darkTheme: AppTheme.CustomeDarkTheme,
+      themeMode: ThemeMode.dark,
+      initialRoute: RegisterScreen.routeName,
+      theme: AppTheme.CustomeLightTheme,
     );
   }
 }

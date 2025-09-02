@@ -1,11 +1,17 @@
 {
   "email": "البريد الإلكتروني",
   "password": "كلمة السر",
+  "confirmPassword": "تأكيد كلمة السر",
   "name": "الاسم",
   "phone": "رقم الهاتف",
   "login": "تسجيل دخول",
   "loginWithGoogle": "تسجيل الدخول بحساب جوجل",
-  "register": "انشاء حساب",
-  "createAccount": "‘نشاء حساب",
-  "forgetPassword": "نسيت كلمة السر"
+  "register": "إنشاء حساب",
+  "createAccount": "إنشاء حساب",
+  "forgetPassword": "نسيت كلمة السر ؟",
+  "alreadyHaveAccount": "لديك حساب بالفعل ؟",
+  "avatar": "صورة شخصية",
+  "passwordMustBeAtLeast8Characters": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
+  "invalidEmail": "بريد إلكتروني غير صالح",
+  "notHaveAccount": "ليس لديك حساب؟"
 }

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/core/utils/default_text_form_field.dart';
 
 class DefaultElevatedButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
-  final Color? backgroundColor;
+  Color? backgroundColor = AppColors.primary;
 
-  const DefaultElevatedButton({
+  DefaultElevatedButton({
     super.key,
     required this.label,
     required this.onPressed,

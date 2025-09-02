@@ -15,6 +15,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password => 'Password';
 
   @override
+  String get confirmPassword => 'Confirm Password';
+
+  @override
   String get name => 'Name';
 
   @override
@@ -33,5 +36,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get createAccount => 'Create Account';
 
   @override
-  String get forgetPassword => 'Forget Password';
+  String get forgetPassword => 'Forget Password ?';
+
+  @override
+  String get alreadyHaveAccount => 'Already Have Account ?';
+
+  @override
+  String get avatar => 'Avatar';
+
+  @override
+  String get passwordMustBeAtLeast8Characters =>
+      'Password must be at least 8 characters';
+
+  @override
+  String get invalidEmail => 'Invalid Email';
+
+  @override
+  String get notHaveAccount => 'Do Not Have Account?';
 }
