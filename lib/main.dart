@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
+import 'package:movie_app/features/forget_password/forget_password.dart';
 import 'package:movie_app/features/profile/ui/update_profile_screen.dart';
 import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale('en'),
       routes: {
         AppRoutes.UpdateProfileScreen: (_) => UpdateProfileScreen(),
+        AppRoutes.ForgetPassword: (_) => ForgetPassword(),
       },
       initialRoute: AppRoutes.UpdateProfileScreen,
     );
