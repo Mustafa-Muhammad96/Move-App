@@ -5,6 +5,7 @@ import 'package:movie_app/core/utils/default_elevated_button.dart';
 import 'package:movie_app/core/utils/default_text_form_field.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 
+//import 'package:movie_app/l10n/app_localizations.dart';
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
   static const String routeName = AppRoutes.registerScreen;
@@ -16,7 +17,7 @@ class RegisterScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(AppLocalizations.of(context)!.register),
+        // title: Text(AppLocalizations.of(context)!.register),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),

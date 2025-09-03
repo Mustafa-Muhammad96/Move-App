@@ -4,7 +4,6 @@ import 'package:movie_app/core/utils/or_divider.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 //import 'package:movie_app/core/utils/default_elevated_button.dart';
 import 'package:movie_app/core/utils/default_text_form_field.dart';
-
 import '../../../widgets/default_elevated_button.dart';
 import '../../routes/routes.dart';
 

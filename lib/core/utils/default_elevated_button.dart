@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/core/utils/default_text_form_field.dart';
 
 class DefaultElevatedButton extends StatelessWidget {
-  String label;
-  VoidCallback onPressed;
-  DefaultElevatedButton(
-      {super.key, required this.label, required this.onPressed});
+  final String label;
+  final VoidCallback onPressed;
+  Color? backgroundColor = AppColors.primary;
+
+  DefaultElevatedButton({
+    super.key,
+    required this.label,
+    required this.onPressed,
+    this.backgroundColor,
+  });
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
+    double width = MediaQuery.sizeOf(context).width;
+    TextTheme text = Theme.of(context).textTheme;
 
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        child: Text(
-          label,
-          style: textTheme.labelLarge,
-        ),
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        fixedSize: Size(width, 56),
+        backgroundColor: backgroundColor, // ← اللون المخصص
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
+      child: Text(label,
+          style: text.labelLarge!.copyWith(
+              color: Color(0xff282A28), fontWeight: FontWeight.normal)),
     );
   }
 }
