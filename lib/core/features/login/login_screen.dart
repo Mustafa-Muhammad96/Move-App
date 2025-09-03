@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/features/register/register_screen.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/utils/or_divider.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
@@ -26,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                children: [
                  SizedBox(height: 40,),
                  Image.asset('assets/images/login_1.png'),
-                 SizedBox(height: 20),
+                 SizedBox(height: 50),
                  DefaultTextFormField(
                    hintText: AppLocalizations.of(context)!.email,
                    iconName: 'email',
@@ -84,12 +85,17 @@ class LoginScreen extends StatelessWidget {
                      ),
                      ),
                      SizedBox(width: 6,),
-                     Text(AppLocalizations.of(context)!.createAccount,
-                       style: TextStyle(
-                           color: AppColors.yellow,
-                           fontSize: 14,
-                           fontWeight: FontWeight.w500
-                       ),),
+                     GestureDetector(
+                       onTap: (){
+                         Navigator.of(context).pushNamed(RegisterScreen.routeName);
+                       },
+                       child: Text(AppLocalizations.of(context)!.createAccount,
+                         style: TextStyle(
+                             color: AppColors.yellow,
+                             fontSize: 14,
+                             fontWeight: FontWeight.w500
+                         ),),
+                     ),
                    ],
                  ),
                  SizedBox(height: 20,),
@@ -97,9 +103,10 @@ class LoginScreen extends StatelessWidget {
                  SizedBox(height: 20,),
                  DefaultElevatedButton(
                    label: AppLocalizations.of(context)!.loginWithGoogle,
-                   onPressed:(){}
+                   onPressed:(){},
+                   svgAsset: 'assets/icons/google_icon.svg',
                  ),
-                 SizedBox(height: 20,),
+                 SizedBox(height: 40,),
                  LanguageSwitchRow(
                    currentLang: languageProvider.locale.languageCode,
                    onSelect: (lang) => languageProvider.changeLanguage(lang),
