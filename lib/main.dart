@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
-        locale: const Locale('en'),
+        locale: const Locale('ar'),
         routes: {
           LoginScreen.routeName: (_) => LoginScreen(),
           RegisterScreen.routeName: (_) => RegisterScreen(),
