@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
 
 class CustomFooter extends StatelessWidget {
   final int currentIndex;
@@ -36,7 +37,7 @@ class CustomFooter extends StatelessWidget {
       onTap: () => onTap(index),
       child: Icon(
         icon,
-        color: currentIndex == index ? Colors.yellow : Colors.white,
+        color: currentIndex == index ? AppColors.yellow : AppColors.white,
         size: 28,
       ),
     );
