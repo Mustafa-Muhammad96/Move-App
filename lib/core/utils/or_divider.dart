@@ -6,32 +6,37 @@ class OrDivider extends StatelessWidget {
   final String text;
   final Color lineColor;
   final Color textColor;
+  final double lineWidth;
 
   const OrDivider({
     super.key,
     this.text = "OR",
     this.lineColor = AppColors.yellow,
     this.textColor = Colors.yellow,
+    this.lineWidth = 90,
   });
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
+        SizedBox(
+          width: lineWidth,
           child: Divider(
             thickness: 1,
             color: lineColor,
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Text(
             text,
             style: TextStyle(color: textColor),
           ),
         ),
-        Expanded(
+        SizedBox(
+          width: lineWidth,
           child: Divider(
             thickness: 1,
             color: lineColor,
@@ -41,3 +46,4 @@ class OrDivider extends StatelessWidget {
     );
   }
 }
+
