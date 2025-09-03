@@ -56,12 +56,17 @@ class LoginScreen extends StatelessWidget {
                  Row(
                    mainAxisAlignment: MainAxisAlignment.end,
                    children: [
-                     Text(
-                       AppLocalizations.of(context)!.forgetPassword,
-                       style: TextStyle(
-                         color: AppColors.yellow,
-                         fontSize: 14,
-                         fontWeight: FontWeight.w400
+                     GestureDetector(
+                       onTap: (){
+                         Navigator.of(context).pushNamed(AppRoutes.ForgetPassword);
+                       },
+                       child: Text(
+                         AppLocalizations.of(context)!.forgetPassword,
+                         style: TextStyle(
+                           color: AppColors.yellow,
+                           fontSize: 14,
+                           fontWeight: FontWeight.w400
+                         ),
                        ),
                      )
                    ],
