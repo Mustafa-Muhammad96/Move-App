@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/core/features/forget_password/forget_password.dart';
 import 'package:movie_app/core/features/home/home_screen.dart';
 import 'package:movie_app/core/features/login/login_screen.dart';
+import 'package:movie_app/core/features/profile/ui/update_profile_screen.dart';
 import 'package:movie_app/core/features/register/register_screen.dart';
+import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 import 'package:movie_app/providers/langauge_provider.dart';
@@ -38,9 +41,11 @@ class MyApp extends StatelessWidget {
         routes: {
           LoginScreen.routeName: (_) => LoginScreen(),
           RegisterScreen.routeName: (_) => RegisterScreen(),
-          HomeScreen.routeName: (_) => HomeScreen()
+          HomeScreen.routeName: (_) => HomeScreen(),
+          AppRoutes.UpdateProfileScreen : (_) => UpdateProfileScreen(),
+          AppRoutes.ForgetPassword : (_) => ForgetPassword(),
         },
-        initialRoute: RegisterScreen.routeName,
+        initialRoute: LoginScreen.routeName,
         theme: AppTheme.CustomeLightTheme,
         darkTheme: AppTheme.CustomeDarkTheme,
         themeMode: ThemeMode.dark);
