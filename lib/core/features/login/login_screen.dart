@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/features/register/register_screen.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
