@@ -11,6 +11,8 @@ import 'package:movie_app/providers/langauge_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'core/routes/route_generator.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
@@ -34,13 +36,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: languageProvider.locale,
-      routes: {
-        LoginScreen.routeName: (_) => LoginScreen(),
-        RegisterScreen.routeName: (_) => RegisterScreen(),
-        HomeScreen.routeName: (_) => HomeScreen(),
-        AppRoutes.UpdateProfileScreen: (_) => UpdateProfileScreen(),
-        AppRoutes.ForgetPassword: (_) => ForgetPassword(),
-      },
+      onGenerateRoute: RoutGenerator.getRoute,
       darkTheme: AppTheme.CustomeDarkTheme,
       themeMode: ThemeMode.dark,
       initialRoute: LoginScreen.routeName,

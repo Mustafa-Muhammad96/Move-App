@@ -29,7 +29,7 @@ class _MyHomePageState extends State<HomeScreen> {
           setState(() {
             _selectedIndex = index;
             if(index == 3){
-              Navigator.of(context).pushNamed('/UpdateProfileScreen');
+              Navigator.of(context).pushNamed(AppRoutes.updateProfileScreen);
             }
 
           });

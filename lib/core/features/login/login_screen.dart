@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                    children: [
                      GestureDetector(
                        onTap: (){
-                         Navigator.of(context).pushNamed(AppRoutes.ForgetPassword);
+                         Navigator.of(context).pushNamed(AppRoutes.forgetPassword);
                        },
                        child: Text(
                          AppLocalizations.of(context)!.forgetPassword,
