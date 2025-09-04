@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:movie_app/core/theme/app_colors.dart';
-
 import 'package:movie_app/core/utils/default_elevated_button.dart';
-
 import 'package:movie_app/core/utils/default_text_form_field.dart';
+import 'package:movie_app/l10n/app_localizations.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
@@ -38,15 +37,16 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     TextTheme text = Theme.of(context).textTheme;
-
     double height = MediaQuery.of(context).size.height;
 
     return Scaffold(
       backgroundColor: AppColors.backgroundDark,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
-          "Pick Avatar",
+          loc.pickAvatar,
           style: text.titleMedium!.copyWith(
             color: AppColors.primary,
             fontWeight: FontWeight.normal,
@@ -68,7 +68,6 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   /// Avatar الحالي
-
                   GestureDetector(
                     onTap: () {
                       setState(() {
@@ -90,9 +89,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   SizedBox(height: height * 0.04),
 
                   /// Name
-
                   DefaultTextFormField(
-                    hintText: "User Name",
+                    hintText: loc.userName,
                     controller: nameController,
                     iconName: 'profile',
                   ),
@@ -100,9 +98,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   SizedBox(height: height * 0.02),
 
                   /// Phone
-
                   DefaultTextFormField(
-                    hintText: "Phone",
+                    hintText: loc.phone,
                     controller: phoneController,
                     iconName: 'phone',
                   ),
@@ -110,23 +107,21 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   SizedBox(height: height * 0.012),
 
                   /// Reset Password
-
                   Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton(
                       onPressed: () {},
                       child: Text(
-                        "Reset Password",
+                        loc.resetPassword,
                         style: text.labelLarge!
                             .copyWith(fontWeight: FontWeight.normal),
                       ),
                     ),
                   ),
 
-                  /// Avatar List
-
                   SizedBox(height: height * 0.02),
 
+                  /// Avatar List
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
@@ -145,12 +140,10 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       ),
                       itemBuilder: (context, index) {
                         final isSelected = selectedAvatar == avatars[index];
-
                         return GestureDetector(
                           onTap: () {
                             setState(() {
                               selectedAvatar = avatars[index];
-
                               isAvatarPickerOpen = false;
                             });
                           },
@@ -180,9 +173,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   SizedBox(height: height * 0.02),
 
                   /// Delete Account
-
                   DefaultElevatedButton(
-                    label: "Delete Account",
+                    label: loc.deleteAccount,
                     backgroundColor: AppColors.red,
                     onPressed: () {},
                   ),
@@ -190,9 +182,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   SizedBox(height: height * 0.0215),
 
                   /// Update Data
-
                   DefaultElevatedButton(
-                    label: "Update Data",
+                    label: loc.updateData,
                     backgroundColor: AppColors.primary,
                     onPressed: () {},
                   ),
@@ -201,91 +192,80 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                 ],
               ),
             )
-          : Column(
-              children: [
-                Expanded(
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isAvatarPickerOpen = !isAvatarPickerOpen;
-                            });
-                          },
-                          child: CircleAvatar(
-                            radius: 70,
-                            backgroundImage: selectedAvatar != null
-                                ? AssetImage(selectedAvatar!)
-                                : null,
-                            child: selectedAvatar == null
-                                ? const Icon(Icons.person,
-                                    size: 60, color: AppColors.gray)
-                                : null,
-                          ),
-                        ),
-
-                        SizedBox(height: height * 0.04),
-
-                        DefaultTextFormField(
-                          hintText: "User Name",
-                          controller: nameController,
-                          iconName: 'profile',
-                        ),
-
-                        SizedBox(height: height * 0.02156),
-
-                        /// Phone
-
-                        DefaultTextFormField(
-                          hintText: "Phone",
-                          controller: phoneController,
-                          iconName: 'phone',
-                        ),
-
-                        SizedBox(height: height * 0.03),
-
-                        /// Reset Password
-
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "Reset Password",
-                              style: text.labelLarge!
-                                  .copyWith(fontWeight: FontWeight.normal),
-                            ),
-                          ),
-                        ),
-                      ],
+          : Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 30),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isAvatarPickerOpen = !isAvatarPickerOpen;
+                        });
+                      },
+                      child: CircleAvatar(
+                        radius: 70,
+                        backgroundImage: selectedAvatar != null
+                            ? AssetImage(selectedAvatar!)
+                            : null,
+                        child: selectedAvatar == null
+                            ? const Icon(Icons.person,
+                                size: 60, color: AppColors.gray)
+                            : null,
+                      ),
                     ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    children: [
-                      DefaultElevatedButton(
-                        label: "Delete Account",
-                        backgroundColor: AppColors.red,
+                    SizedBox(height: height * 0.04),
+                    DefaultTextFormField(
+                      hintText: loc.userName,
+                      controller: nameController,
+                      iconName: 'profile',
+                    ),
+                    SizedBox(height: height * 0.02156),
+                    DefaultTextFormField(
+                      hintText: loc.phone,
+                      controller: phoneController,
+                      iconName: 'phone',
+                    ),
+                    SizedBox(height: height * 0.03),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: TextButton(
                         onPressed: () {},
+                        child: Text(
+                          loc.resetPassword,
+                          style: text.labelLarge!
+                              .copyWith(fontWeight: FontWeight.normal),
+                        ),
                       ),
-                      SizedBox(height: height * 0.0215),
-                      DefaultElevatedButton(
-                        label: "Update Data",
-                        backgroundColor: AppColors.primary,
-                        onPressed: () {},
-                      ),
-                      SizedBox(height: height * 0.037),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
+      bottomNavigationBar: !isAvatarPickerOpen
+          ? Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  DefaultElevatedButton(
+                    label: loc.deleteAccount,
+                    backgroundColor: AppColors.red,
+                    onPressed: () {},
+                  ),
+                  const SizedBox(height: 12),
+                  DefaultElevatedButton(
+                    label: loc.updateData,
+                    backgroundColor: AppColors.primary,
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            )
+          : null,
     );
   }
 }

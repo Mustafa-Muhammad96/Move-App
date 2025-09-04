@@ -1,4 +1,5 @@
 {
+  "@@locale": "ar",
   "email": "البريد الإلكتروني",
   "password": "كلمة السر",
   "confirmPassword": "تأكيد كلمة السر",
@@ -13,5 +14,11 @@
   "avatar": "صورة شخصية",
   "passwordMustBeAtLeast8Characters": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل",
   "invalidEmail": "بريد إلكتروني غير صالح",
-  "notHaveAccount": "ليس لديك حساب؟"
+  "notHaveAccount": "ليس لديك حساب؟",
+  "pickAvatar": "اختر صورة شخصية",
+  "resetPassword": "إعادة تعيين كلمة السر",
+  "deleteAccount": "حذف الحساب",
+  "updateData": "تحديث البيانات",
+  "userName": "اسم المستخدم",
+  "verifyEmail": "تأكيد البريد الإلكتروني"
 }

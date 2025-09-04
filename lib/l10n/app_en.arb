@@ -1,4 +1,5 @@
 {
+  "@@locale": "en",
   "email": "Email",
   "password": "Password",
   "confirmPassword": "Confirm Password",
@@ -13,5 +14,11 @@
   "avatar": "Avatar",
   "passwordMustBeAtLeast8Characters": "Password must be at least 8 characters",
   "invalidEmail": "Invalid Email",
-  "notHaveAccount": "Do Not Have Account?"
+  "notHaveAccount": "Do Not Have Account?",
+  "pickAvatar": "Pick Avatar",
+  "resetPassword": "Reset Password",
+  "deleteAccount": "Delete Account",
+  "updateData": "Update Data",
+  "userName": "User Name",
+  "verifyEmail": "Verify Email"
 }

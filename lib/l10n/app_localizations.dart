@@ -94,8 +94,8 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('ar'),
-    Locale('en')
+    Locale('en'),
+    Locale('ar')
   ];
 
   /// No description provided for @email.
@@ -187,6 +187,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Do Not Have Account?'**
   String get notHaveAccount;
+
+  /// No description provided for @pickAvatar.
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Avatar'**
+  String get pickAvatar;
+
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
+
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Account'**
+  String get deleteAccount;
+
+  /// No description provided for @updateData.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Data'**
+  String get updateData;
+
+  /// No description provided for @userName.
+  ///
+  /// In en, this message translates to:
+  /// **'User Name'**
+  String get userName;
+
+  /// No description provided for @verifyEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Email'**
+  String get verifyEmail;
 }
 
 class _AppLocalizationsDelegate

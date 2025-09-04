@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/utils/default_elevated_button.dart';
 import 'package:movie_app/core/utils/default_text_form_field.dart';
+import 'package:movie_app/l10n/app_localizations.dart';
 
 class ForgetPassword extends StatelessWidget {
   ForgetPassword({super.key});
@@ -10,6 +11,7 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final loc = AppLocalizations.of(context)!;
     TextTheme text = Theme.of(context).textTheme;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -41,13 +43,13 @@ class ForgetPassword extends StatelessWidget {
               fit: BoxFit.contain,
             ),
             DefaultTextFormField(
-              hintText: "Email",
+              hintText: loc.email,
               controller: emailController,
               iconName: 'email',
             ),
             SizedBox(height: height * 0.02724),
             DefaultElevatedButton(
-              label: "Verify Email",
+              label: loc.verifyEmail,
               backgroundColor: AppColors.primary,
               onPressed: () {},
             ),

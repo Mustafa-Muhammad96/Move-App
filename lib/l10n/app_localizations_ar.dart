@@ -53,4 +53,22 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get notHaveAccount => 'ليس لديك حساب؟';
+
+  @override
+  String get pickAvatar => 'اختر صورة شخصية';
+
+  @override
+  String get resetPassword => 'إعادة تعيين كلمة السر';
+
+  @override
+  String get deleteAccount => 'حذف الحساب';
+
+  @override
+  String get updateData => 'تحديث البيانات';
+
+  @override
+  String get userName => 'اسم المستخدم';
+
+  @override
+  String get verifyEmail => 'تأكيد البريد الإلكتروني';
 }

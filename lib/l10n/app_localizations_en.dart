@@ -53,4 +53,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notHaveAccount => 'Do Not Have Account?';
+
+  @override
+  String get pickAvatar => 'Pick Avatar';
+
+  @override
+  String get resetPassword => 'Reset Password';
+
+  @override
+  String get deleteAccount => 'Delete Account';
+
+  @override
+  String get updateData => 'Update Data';
+
+  @override
+  String get userName => 'User Name';
+
+  @override
+  String get verifyEmail => 'Verify Email';
 }

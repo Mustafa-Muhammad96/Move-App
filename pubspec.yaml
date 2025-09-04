@@ -37,6 +37,7 @@ dependencies:
   carousel_slider: ^5.1.1
   flutter_svg: ^2.1.0
   shared_preferences: ^2.5.3
+  
 
 
 
@@ -49,8 +50,8 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
-  flutter_native_splash: 2.4.4
+  flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -64,6 +65,8 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/avatar/
+
+  
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
