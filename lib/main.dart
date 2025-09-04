@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       },
       darkTheme: AppTheme.CustomeDarkTheme,
       themeMode: ThemeMode.dark,
-      initialRoute: AppRoutes.ForgetPassword,
+      initialRoute: LoginScreen.routeName,
       theme: AppTheme.CustomeLightTheme,
     );
   }

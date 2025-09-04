@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -43,7 +45,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get avatar => 'صورة شخصية';
 
   @override
-  String get passwordMustBeAtLeast8Characters => 'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل';
+  String get passwordMustBeAtLeast8Characters =>
+      'يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل';
 
   @override
   String get invalidEmail => 'بريد إلكتروني غير صالح';
