@@ -150,7 +150,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? AppColors.primary.withValues(alpha: 0.56)
+                                  ? AppColors.primary
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(

@@ -1,9 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/routes/routes.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/utils/default_elevated_button.dart';
 import 'package:movie_app/core/utils/default_text_form_field.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+import '../../../providers/langauge_provider.dart';
+import '../../utils/lang_toggle.dart';
 
 //import 'package:movie_app/l10n/app_localizations.dart';
 class RegisterScreen extends StatelessWidget {
@@ -12,12 +16,14 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final languageProvider = Provider.of<LanguageProvider>(context);
     TextTheme textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: AppColors.backgroundDark,
         centerTitle: true,
-        // title: Text(AppLocalizations.of(context)!.register),
+         title: Text(AppLocalizations.of(context)!.register),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -129,7 +135,11 @@ class RegisterScreen extends StatelessWidget {
                     child: Text(AppLocalizations.of(context)!.login),
                   )
                 ],
-              )
+              ),
+              LanguageSwitchRow(
+                currentLang: languageProvider.locale.languageCode,
+                onSelect: (lang) => languageProvider.changeLanguage(lang),
+              ),
             ],
           ),
         ),
