@@ -3,14 +3,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 
 class DefaultTextFormField extends StatefulWidget {
-  String iconName;
-  String hintText;
-  TextEditingController? controller;
-  void Function(String)? onChanged;
-  String? Function(String?)? validator;
-  bool isPassword;
+  final String iconName;
+  final String hintText;
+  final TextEditingController? controller;
+  final void Function(String)? onChanged;
+  final String? Function(String?)? validator;
+  final bool isPassword;
 
-  DefaultTextFormField({
+ const DefaultTextFormField({
     super.key,
     required this.iconName,
     required this.hintText,
