@@ -4,42 +4,43 @@ import 'app_colors.dart';
 class AppTheme {
   // ignore: non_constant_identifier_names
   static ThemeData CustomeDarkTheme = ThemeData(
-    scaffoldBackgroundColor: AppColors.backgroundDark.withOpacity(0.5),
-
+    scaffoldBackgroundColor: AppColors.backgroundDark,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.black,
-      foregroundColor: AppColors.white,
+      foregroundColor: AppColors.primary,
       centerTitle: true,
       titleTextStyle: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w500,
-        color: AppColors.white,
-        //color: AppColors.primary,
+        fontSize: 16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.primary,
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
-      hintStyle: TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        color: AppColors.gray,
-      ),
-      enabledBorder: OutlineInputBorder(
-        // borderSide: BorderSide(color: AppColors.primary),
-        borderRadius: BorderRadius.circular(16),
+      filled: true,
+      fillColor: Colors.white.withOpacity(0.1),
+      hintStyle: TextStyle(color: Colors.white70),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        // borderSide: BorderSide(color: AppColors.primary),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Colors.white, width: 1.5),
       ),
       errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        //borderSide: BorderSide(color: AppColors.red),
+        borderRadius: BorderRadius.circular(12),
+        borderSide: const BorderSide(color: Colors.red, width: 1.5),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide.none,
       ),
     ),
-
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        //backgroundColor: AppColors.primary,
+        padding: EdgeInsets.symmetric(vertical: 12),
+        foregroundColor: AppColors.black,
+        backgroundColor: AppColors.yellow,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
     ),
@@ -57,18 +58,18 @@ class AppTheme {
       ),
       titleMedium: TextStyle(
         fontSize: 16,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w400,
         color: AppColors.white,
       ),
       titleSmall: TextStyle(
         fontSize: 14,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w400,
         color: AppColors.white,
       ),
       labelLarge: TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.bold,
-        color: AppColors.white,
+        fontWeight: FontWeight.w400,
+        color: AppColors.black,
       ),
       labelSmall: TextStyle(
         fontSize: 12,
@@ -84,9 +85,9 @@ class AppTheme {
 
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
-        //foregroundColor: AppColors.primary,
+        foregroundColor: AppColors.primary,
         textStyle: TextStyle(
-          fontSize: 16,
+          fontSize: 14,
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,
           decoration: TextDecoration.underline,
