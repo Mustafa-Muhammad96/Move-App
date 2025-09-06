@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/features/onboarding/onboarding_data.dart';
-import 'package:movie_app/core/features/onboarding/onboarding_items.dart';
+import 'onboarding_data.dart';
+import 'onboarding_items.dart';
 
 class OnboardingScreen extends StatefulWidget {
-  static const String routeName="/onboarding";
-
+  const OnboardingScreen({super.key});
   @override
   State<OnboardingScreen> createState() => _OnboardingScreenState();
 }
@@ -21,11 +20,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
            child: PageView.builder(
             controller: controller,
             itemBuilder: (_,index) =>OnboardingItems(
-              onboardingData: OnboardingData.OnboardingList[index],
+              onboardingData: OnboardingData.onboardingList[index],
               index: index,
               controller: controller
               ),
-            itemCount:OnboardingData.OnboardingList.length ,
+            itemCount:OnboardingData.onboardingList.length ,
            
             ),
          )

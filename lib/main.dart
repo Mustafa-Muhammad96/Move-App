@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/features/forget_password/forget_password.dart';
-import 'package:movie_app/core/features/home/home_screen.dart';
-import 'package:movie_app/core/features/login/login_screen.dart';
-import 'package:movie_app/core/features/profile/ui/update_profile_screen.dart';
-import 'package:movie_app/core/features/register/register_screen.dart';
 import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
-import 'package:movie_app/providers/langauge_provider.dart';
+import 'package:movie_app/providers/language_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'core/routes/route_generator.dart';
 
 Future<void> main() async {
@@ -39,7 +33,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RoutGenerator.getRoute,
       darkTheme: AppTheme.CustomeDarkTheme,
       themeMode: ThemeMode.dark,
-      initialRoute: LoginScreen.routeName,
+      initialRoute: AppRoutes.loginScreen,
       theme: AppTheme.CustomeLightTheme,
     );
   }

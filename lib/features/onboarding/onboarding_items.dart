@@ -1,48 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/features/login/login_screen.dart';
-import 'package:movie_app/core/features/onboarding/onboarding_data.dart';
+import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
-import 'package:movie_app/utils/save_onboarding_status.dart';
-import 'package:movie_app/widgets/default_elevated_button.dart';
+import 'package:movie_app/core/utils/save_onboarding_status.dart';
+import '../../core/widgets/default_elevated_button.dart';
+import 'onboarding_data.dart';
 
-class OnboardingItems extends StatelessWidget {
-  OnboardingData onboardingData;
-  int index;
-  PageController controller;
+class OnboardingItems extends StatefulWidget {
+  final OnboardingData onboardingData;
+  final int index;
+  final PageController controller;
 
-  OnboardingItems({
+  const OnboardingItems({super.key,
     required this.onboardingData,
     required this.index,
     required this.controller
     });
 
   @override
+  State<OnboardingItems> createState() => _OnboardingItemsState();
+}
+
+class _OnboardingItemsState extends State<OnboardingItems> {
+  @override
   Widget build(BuildContext context) {
     TextTheme textTheme=Theme.of(context).textTheme;
 
     return Stack(
       children: [
-        Image.asset("assets/images/${onboardingData.imageName}.png" , height: double.infinity,width: double.infinity,fit: BoxFit.fill) ,
+        Image.asset("assets/images/${widget.onboardingData.imageName}.png" , height: double.infinity,width: double.infinity,fit: BoxFit.fill) ,
          Align(
           alignment: Alignment.bottomCenter,
-           child:index==0? 
+           child:widget.index==0?
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                 Text("${onboardingData.title}" , style:textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w700),textAlign: TextAlign.center ),
+                 Text(widget.onboardingData.title , style:textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w700),textAlign: TextAlign.center ),
                  SizedBox(height: 16),
-                 
-                 Text("${onboardingData.description}", style: textTheme.labelLarge!.copyWith(color:AppColors.gray ,fontWeight: FontWeight.w400),textAlign: TextAlign.center),
+
+                 Text("${widget.onboardingData.description}", style: textTheme.labelLarge!.copyWith(color:AppColors.gray ,fontWeight: FontWeight.w400),textAlign: TextAlign.center),
                  SizedBox(height: 16),
-                 DefaultElevatedButton(label:"Explore World ", onPressed:(){controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);}),
+                 DefaultElevatedButton(label:"Explore World ", onPressed:(){widget.controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);}),
                  SizedBox(height: 16),
                 ],
               ),
             )
-           
-           
+
+
            :Container(
             padding: EdgeInsets.all(20),
             width: double.infinity,
@@ -56,30 +61,30 @@ class OnboardingItems extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-               Text("${onboardingData.title}" , style:textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w700),textAlign: TextAlign.center ),
+               Text(widget.onboardingData.title , style:textTheme.displaySmall!.copyWith(fontWeight: FontWeight.w700),textAlign: TextAlign.center ),
                SizedBox(height: 16),
-               if(onboardingData.description!=null)...[
-               Text("${onboardingData.description}", style: textTheme.labelLarge!.copyWith(color:index>0?AppColors.white:AppColors.gray ,fontWeight: FontWeight.w400),textAlign: TextAlign.center),
+               if(widget.onboardingData.description!=null)...[
+               Text("${widget.onboardingData.description}", style: textTheme.labelLarge!.copyWith(color:widget.index>0?AppColors.white:AppColors.gray ,fontWeight: FontWeight.w400),textAlign: TextAlign.center),
                SizedBox(height: 16),
                ],
 
-               DefaultElevatedButton(label:index==5?"Finish":"Next",
+               DefaultElevatedButton(label:widget.index==5?"Finish":"Next",
                onPressed:()async{
-                if(index==5){
+                if(widget.index==5){
                   await saveOnboardingStatus();
-                  Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+                  Navigator.pushReplacementNamed(context, AppRoutes.loginScreen);
                 }else{
-                controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                widget.controller.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);
                 }
                }
                ),
 
                SizedBox(height: 16),
 
-               if(index>1)...[
+               if(widget.index>1)...[
                OutlinedButton(
                 onPressed: (){
-                  controller.previousPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                  widget.controller.previousPage(duration: Duration(milliseconds: 300), curve: Curves.easeIn);
                 },
                 style: OutlinedButton.styleFrom(
                   backgroundColor: Colors.transparent,
@@ -89,8 +94,8 @@ class OnboardingItems extends StatelessWidget {
                 ),
                  child: Text("Back" ,style: textTheme.labelLarge!.copyWith( color:  AppColors.yellow,fontWeight: FontWeight.w600),)
                  )
-                   
-               ]  
+
+               ]
               ],
             ),
                    ),

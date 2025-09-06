@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/routes/routes.dart';
 
-import '../../utils/custom_footer.dart';
+import '../../core/widgets/custom_footer.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

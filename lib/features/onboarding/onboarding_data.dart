@@ -3,14 +3,13 @@ class OnboardingData{
   String title;
   String ?description;
 
-
  OnboardingData({
   required this.imageName,
   required this.title,
    this.description
  });
 
-static List<OnboardingData> OnboardingList=[
+static List<OnboardingData> onboardingList = [
   OnboardingData(imageName: "onboarding1", title: "Find Your Next\nFavorite Movie Here", description: "Get access to a huge library of movies\nto suit all tastes. You will surely like it."),
   OnboardingData(imageName: "onboading2", title:"Discover Movies", description: "Explore a vast collection of movies in all\nqualities and genres. Find your next\nfavorite film with ease."),
   OnboardingData(imageName: "onboarding3", title:"Explore All Genres", description: "Discover movies from every genre, in all\navailable qualities. Find something new\nand exciting to watch every day."),

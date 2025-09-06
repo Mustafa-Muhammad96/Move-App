@@ -2,17 +2,16 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
-import 'package:movie_app/core/utils/default_elevated_button.dart';
-import 'package:movie_app/core/utils/default_text_form_field.dart';
+import 'package:movie_app/core/widgets/default_elevated_button.dart';
+import 'package:movie_app/core/widgets/default_text_form_field.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-import '../../../providers/langauge_provider.dart';
-import '../../utils/lang_toggle.dart';
+import '../../../providers/language_provider.dart';
+import '../../core/widgets/lang_toggle.dart';
 
 //import 'package:movie_app/l10n/app_localizations.dart';
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
-  static const String routeName = AppRoutes.registerScreen;
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
-import 'package:movie_app/core/utils/default_elevated_button.dart';
-import 'package:movie_app/core/utils/default_text_form_field.dart';
+import 'package:movie_app/core/widgets/default_elevated_button.dart';
+import 'package:movie_app/core/widgets/default_text_form_field.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 
 class ForgetPassword extends StatelessWidget {
