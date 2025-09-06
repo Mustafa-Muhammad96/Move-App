@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../theme/app_colors.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
 
 class LanguageSwitchRow extends StatelessWidget {
   final String currentLang;
