@@ -95,13 +95,8 @@ class AppTheme {
       ),
     ),
 
-    //primaryColor: AppColors.primary,
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      selectedItemColor: AppColors.white,
-      unselectedItemColor: AppColors.white,
-      // backgroundColor: AppColors.primary,
-      type: BottomNavigationBarType.fixed,
-    ),
+  
+    
   );
 
   // ignore: non_constant_identifier_names

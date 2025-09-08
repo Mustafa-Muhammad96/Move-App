@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../theme/app_colors.dart';
+import 'package:movie_app/core/theme/app_colors.dart';
 
 class LanguageSwitchRow extends StatelessWidget {
   final String currentLang;
@@ -19,7 +18,7 @@ class LanguageSwitchRow extends StatelessWidget {
       width: 120,
       height: 55,
       decoration: BoxDecoration(
-        color: AppColors.black,
+        color: AppColors.backgroundDark,
         borderRadius: BorderRadius.circular(40),
         border: Border.all(color: Colors.yellow, width: 3),
       ),
