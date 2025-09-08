@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/routes/routes.dart';
 
 import '../../features/forget_password/forget_password.dart';
-import '../../features/home/home_screen.dart';
+import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/login/presentation/screens/login_screen.dart';
 import '../../features/profile/ui/update_profile_screen.dart';
 import '../../features/register/register_screen.dart';
