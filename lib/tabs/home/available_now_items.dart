@@ -9,6 +9,6 @@ class AvailableNowItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Image.asset("assets/images/${imageName}.jpg" ,fit: BoxFit.fill,width: double.infinity,));
+      child: Image.asset("assets/images/$imageName.jpg" ,fit: BoxFit.fill,width: double.infinity,));
   }
 }
