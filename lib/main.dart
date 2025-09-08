@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: RoutGenerator.getRoute,
       darkTheme: AppTheme.CustomeDarkTheme,
       themeMode: ThemeMode.dark,
-      initialRoute: AppRoutes.homeScreen,
+      initialRoute: AppRoutes.loginScreen,
       theme: AppTheme.CustomeLightTheme,
     );
   }
