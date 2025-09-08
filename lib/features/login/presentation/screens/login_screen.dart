@@ -5,9 +5,9 @@ import 'package:movie_app/l10n/app_localizations.dart';
 import 'package:movie_app/core/widgets/default_text_form_field.dart';
 import 'package:movie_app/core/widgets/default_elevated_button.dart';
 import 'package:provider/provider.dart';
-import '../../../providers/language_provider.dart';
-import '../../core/routes/routes.dart';
-import '../../core/widgets//lang_toggle.dart';
+import '../../../../../providers/language_provider.dart';
+import '../../../../core/routes/routes.dart';
+import '../../../../core/widgets/lang_toggle.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
