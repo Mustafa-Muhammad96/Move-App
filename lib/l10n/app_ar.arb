@@ -24,4 +24,7 @@
   "oldPassword": "كلمة السر القديمة",
   "newPassword": "كلمة السر الجديدة",
   "updatePassword": "تحديث كلمة السر"
+  "editProfile": "تعديل الملف الشخصي",
+  "exit": "خروج"
 }
+

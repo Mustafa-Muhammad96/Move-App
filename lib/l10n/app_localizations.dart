@@ -241,6 +241,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update Password'**
   String get updatePassword;
+
+  /// No description provided for @editProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Profile'**
+  String get editProfile;
+
+  /// No description provided for @exit.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exit;
 }
 
 class _AppLocalizationsDelegate

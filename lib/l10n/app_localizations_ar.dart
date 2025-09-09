@@ -80,4 +80,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get updatePassword => 'تحديث كلمة السر';
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get exit => 'خروج';
 }

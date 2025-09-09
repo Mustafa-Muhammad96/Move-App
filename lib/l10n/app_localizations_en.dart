@@ -80,4 +80,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get updatePassword => 'Update Password';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get exit => 'Exit';
 }

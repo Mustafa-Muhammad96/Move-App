@@ -24,4 +24,7 @@
   "oldPassword": "Old Password",
   "newPassword": "New Password",
   "updatePassword": "Update Password"
+  "editProfile": "Edit Profile",
+  "exit": "Exit"
 }
+
