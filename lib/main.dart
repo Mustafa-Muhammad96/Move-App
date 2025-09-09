@@ -12,8 +12,12 @@ Future<void> main() async {
   final prefs = await SharedPreferences.getInstance();
   final seen = prefs.getBool("onboarding_seen") ?? false;
 
-  runApp(ChangeNotifierProvider(
-      create: (_) => LanguageProvider(), child: MyApp(seenOnboarding: seen)));
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => LanguageProvider(),
+      child: MyApp(seenOnboarding: seen),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
