@@ -1,5 +1,4 @@
 import 'package:movie_app/features/home/data/model/movie_response.dart';
-import 'package:movie_app/features/home/data/model/movies_data.dart';
 
 abstract class MovieStates{}
 
