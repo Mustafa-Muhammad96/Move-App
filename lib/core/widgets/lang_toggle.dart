@@ -35,7 +35,9 @@ class LanguageSwitchRow extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: currentLang == "en" ? AppColors.yellow : AppColors.backgroundDark,
+                    color: currentLang == "en"
+                        ? AppColors.yellow
+                        : AppColors.backgroundDark,
                     width: 3,
                   ),
                   image: const DecorationImage(
@@ -53,7 +55,9 @@ class LanguageSwitchRow extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: currentLang == "ar" ? AppColors.yellow : AppColors.backgroundDark,
+                    color: currentLang == "ar"
+                        ? AppColors.yellow
+                        : AppColors.backgroundDark,
                     width: 3,
                   ),
                   image: const DecorationImage(
@@ -62,8 +66,7 @@ class LanguageSwitchRow extends StatelessWidget {
                   ),
                 ),
               ),
-            )
-
+            ),
           ],
         ),
       ),
