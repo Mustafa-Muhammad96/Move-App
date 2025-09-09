@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/widgets/default_elevated_button.dart';
 import 'package:movie_app/core/widgets/default_text_form_field.dart';
+import 'package:movie_app/features/reset-password/logic/reset_password_cubit.dart';
+import 'package:movie_app/features/reset-password/ui/reset_password_screen.dart';
 import 'package:movie_app/l10n/app_localizations.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
@@ -16,11 +20,13 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
   String? selectedAvatar = "assets/avatar/avatar9.png";
 
-  final TextEditingController nameController =
-      TextEditingController(text: "hussein shafeek");
+  final TextEditingController nameController = TextEditingController(
+    text: "hussein shafeek",
+  );
 
-  final TextEditingController phoneController =
-      TextEditingController(text: "01200000000");
+  final TextEditingController phoneController = TextEditingController(
+    text: "01200000000",
+  );
 
   List<String> avatars = [
     "assets/avatar/avatar2.png",
@@ -52,17 +58,16 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           ),
         ),
         leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: AppColors.primary,
-          ),
+          icon: const Icon(Icons.arrow_back, color: AppColors.primary),
           onPressed: () => Navigator.pop(context),
         ),
       ),
       body: isAvatarPickerOpen
           ? SingleChildScrollView(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 20,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -79,8 +84,11 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                           ? AssetImage(selectedAvatar!)
                           : null,
                       child: selectedAvatar == null
-                          ? const Icon(Icons.person,
-                              size: 60, color: AppColors.gray)
+                          ? const Icon(
+                              Icons.person,
+                              size: 60,
+                              color: AppColors.gray,
+                            )
                           : null,
                     ),
                   ),
@@ -109,11 +117,30 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: TextButton(
-                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white, // النص أبيض
+                        overlayColor:
+                            Colors.white24, // ✅ لون الضغط (خفيف أبيض شفاف)
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => BlocProvider(
+                              create: (context) => ResetPasswordCubit(),
+                              child: const ResetPasswordScreen(),
+                            ),
+                          ),
+                        );
+                      },
                       child: Text(
                         loc.resetPassword,
-                        style: text.labelLarge!
-                            .copyWith(fontWeight: FontWeight.normal),
+                        style: text.labelLarge!.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                          decoration: TextDecoration.underline,
+                          decorationColor: Colors.white, // 💡 يخليه شبه "لينك"
+                        ),
                       ),
                     ),
                   ),
@@ -133,10 +160,10 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                       itemCount: avatars.length,
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 12,
-                        mainAxisSpacing: 12,
-                      ),
+                            crossAxisCount: 3,
+                            crossAxisSpacing: 12,
+                            mainAxisSpacing: 12,
+                          ),
                       itemBuilder: (context, index) {
                         final isSelected = selectedAvatar == avatars[index];
                         return GestureDetector(
@@ -152,9 +179,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                                   ? AppColors.primary
                                   : Colors.transparent,
                               borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: AppColors.primary,
-                              ),
+                              border: Border.all(color: AppColors.primary),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(10),
@@ -192,8 +217,10 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               ),
             )
           : Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 30),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 30,
+              ),
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -210,8 +237,11 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                             ? AssetImage(selectedAvatar!)
                             : null,
                         child: selectedAvatar == null
-                            ? const Icon(Icons.person,
-                                size: 60, color: AppColors.gray)
+                            ? const Icon(
+                                Icons.person,
+                                size: 60,
+                                color: AppColors.gray,
+                              )
                             : null,
                       ),
                     ),
@@ -231,11 +261,31 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: TextButton(
-                        onPressed: () {},
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.white, // النص أبيض
+                          overlayColor:
+                              Colors.white24, // ✅ لون الضغط (خفيف أبيض شفاف)
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => BlocProvider(
+                                create: (context) => ResetPasswordCubit(),
+                                child: const ResetPasswordScreen(),
+                              ),
+                            ),
+                          );
+                        },
                         child: Text(
                           loc.resetPassword,
-                          style: text.labelLarge!
-                              .copyWith(fontWeight: FontWeight.normal),
+                          style: text.labelLarge!.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                            decoration: TextDecoration.underline,
+                            decorationColor:
+                                Colors.white, // 💡 يخليه شبه "لينك"
+                          ),
                         ),
                       ),
                     ),
@@ -245,8 +295,10 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
             ),
       bottomNavigationBar: !isAvatarPickerOpen
           ? Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 20),
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 20,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
