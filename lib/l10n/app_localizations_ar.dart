@@ -71,4 +71,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get verifyEmail => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get exit => 'خروج';
 }

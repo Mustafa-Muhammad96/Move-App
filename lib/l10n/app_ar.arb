@@ -20,5 +20,7 @@
   "deleteAccount": "حذف الحساب",
   "updateData": "تحديث البيانات",
   "userName": "اسم المستخدم",
-  "verifyEmail": "تأكيد البريد الإلكتروني"
+  "verifyEmail": "تأكيد البريد الإلكتروني",
+  "editProfile": "تعديل الملف الشخصي",
+  "exit": "خروج"
 }

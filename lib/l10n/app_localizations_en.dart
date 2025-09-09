@@ -71,4 +71,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verifyEmail => 'Verify Email';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get exit => 'Exit';
 }

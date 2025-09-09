@@ -20,5 +20,7 @@
   "deleteAccount": "Delete Account",
   "updateData": "Update Data",
   "userName": "User Name",
-  "verifyEmail": "Verify Email"
+  "verifyEmail": "Verify Email",
+  "editProfile": "Edit Profile",
+  "exit": "Exit"
 }

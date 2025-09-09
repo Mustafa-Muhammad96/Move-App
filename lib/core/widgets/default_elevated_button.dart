@@ -7,7 +7,9 @@ class DefaultElevatedButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   final Color? backgroundColor;
-  final String? svgAsset; 
+  final Color? foregroundColor;
+
+  final String? svgAsset;
   final double svgSize;
 
   const DefaultElevatedButton({
@@ -15,6 +17,7 @@ class DefaultElevatedButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.backgroundColor = AppColors.primary,
+    this.foregroundColor = AppColors.black,
     this.svgAsset,
     this.svgSize = 24,
   });
@@ -28,26 +31,27 @@ class DefaultElevatedButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         fixedSize: Size(width, 56),
         backgroundColor: backgroundColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(
+            label,
+            style: AppTheme.CustomeDarkTheme.textTheme.labelLarge?.copyWith(
+              color: foregroundColor ?? const Color(0xff282A28),
+            ),
+          ),
           if (svgAsset != null) ...[
+            SizedBox(width: 6),
             SvgPicture.asset(
               svgAsset!,
               width: svgSize,
               height: svgSize,
+              colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
             ),
             const SizedBox(width: 8),
           ],
-          Text(
-            label,
-            style: AppTheme.CustomeDarkTheme.textTheme.titleMedium
-                ?.copyWith(color: const Color(0xff282A28)),
-          ),
         ],
       ),
     );
