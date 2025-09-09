@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/core/widgets/loading_indicator.dart';
 import 'package:movie_app/core/widgets/or_divider.dart';
 import 'package:movie_app/features/login/data/models/login_request.dart';
 import 'package:movie_app/features/login/presentation/cubit/login_cubit.dart';
@@ -169,19 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                        ),
                      ),
                      if (state is LoginLoading)
-                       Center(
-                         child: Container(
-                           height: 200,
-                           width: 200,
-                           decoration: BoxDecoration(
-                             color: AppColors.white,
-                             borderRadius: BorderRadius.circular(12)
-                           ),
-                           child: const Center(
-                             child: CircularProgressIndicator(color: AppColors.yellow),
-                           ),
-                         ),
-                       ),
+                      LoadingIndicator()
                    ]
                   ),
                 )
