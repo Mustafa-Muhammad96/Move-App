@@ -1,16 +1,25 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ActionItems extends StatelessWidget {
-  String imageName;
+  final String imageUrl;
 
-  ActionItems({required this.imageName});
+  const ActionItems({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
-      child: Image.asset("assets/images/${imageName}.jpg" ,height: double.infinity,fit: BoxFit.fill,
-      )
+      child: CachedNetworkImage(
+        imageUrl: imageUrl,
+        fit: BoxFit.cover,
+        width: MediaQuery.sizeOf(context).width * 0.3,
+        height: MediaQuery.sizeOf(context).height * 0.25,
+        placeholder: (context, url) =>
+            Center(child: CircularProgressIndicator()),
+        errorWidget: (context, url, error) =>
+            Icon(Icons.broken_image, size: 50, color: Colors.grey),
+      ),
       );
   }
 }
