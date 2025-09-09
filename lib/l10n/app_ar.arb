@@ -23,7 +23,7 @@
   "verifyEmail": "تأكيد البريد الإلكتروني",
   "oldPassword": "كلمة السر القديمة",
   "newPassword": "كلمة السر الجديدة",
-  "updatePassword": "تحديث كلمة السر"
+  "updatePassword": "تحديث كلمة السر",
   "editProfile": "تعديل الملف الشخصي",
   "exit": "خروج"
 }
