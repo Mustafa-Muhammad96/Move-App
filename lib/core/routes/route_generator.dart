@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/core/routes/routes.dart';
+import 'package:movie_app/features/reset-password/ui/reset_password_screen.dart';
 
 import '../../features/forget_password/ui/forget_password.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
@@ -20,6 +21,9 @@ class RoutGenerator {
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case AppRoutes.updateProfileScreen:
         return MaterialPageRoute(builder: (_) => UpdateProfileScreen());
+      case AppRoutes.resetPasswordScreen:
+        return MaterialPageRoute(builder: (_) => ResetPasswordScreen());
+
       default:
         return MaterialPageRoute(builder: (_) => LoginScreen());
     }

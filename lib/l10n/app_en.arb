@@ -20,5 +20,8 @@
   "deleteAccount": "Delete Account",
   "updateData": "Update Data",
   "userName": "User Name",
-  "verifyEmail": "Verify Email"
+  "verifyEmail": "Verify Email",
+  "oldPassword": "Old Password",
+  "newPassword": "New Password",
+  "updatePassword": "Update Password"
 }
