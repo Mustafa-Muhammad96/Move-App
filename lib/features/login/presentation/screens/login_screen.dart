@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
@@ -39,9 +40,19 @@ class _LoginScreenState extends State<LoginScreen> {
               context, AppRoutes.homeScreen);
         }
         if (state is LoginError) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message)),
-          );
+          AwesomeDialog(
+            context: context,
+            dialogType: DialogType.error,
+            headerAnimationLoop: false,
+            animType: AnimType.bottomSlide,
+            title: 'Error',
+            titleTextStyle: TextStyle(color: AppColors.black),
+            desc: state.message,
+            buttonsTextStyle: const TextStyle(color: Colors.black),
+            showCloseIcon: true,
+            btnCancelOnPress: () {},
+            btnOkOnPress: () {},
+          ).show();
         }
       },
       builder: (context, state)
