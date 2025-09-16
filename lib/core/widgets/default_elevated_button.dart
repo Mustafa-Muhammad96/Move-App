@@ -40,6 +40,7 @@ class DefaultElevatedButton extends StatelessWidget {
             label,
             style: AppTheme.CustomeDarkTheme.textTheme.labelLarge?.copyWith(
               color: foregroundColor ?? const Color(0xff282A28),
+              fontWeight: FontWeight.bold,
             ),
           ),
           if (svgAsset != null) ...[
