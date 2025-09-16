@@ -50,7 +50,7 @@ class GenresSection extends StatelessWidget {
                         : Container(
                             margin: const EdgeInsets.all(4),
                             padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
+                              horizontal: 8,
                               vertical: 8,
                             ),
                             decoration: BoxDecoration(
@@ -58,10 +58,15 @@ class GenresSection extends StatelessWidget {
                               borderRadius: BorderRadius.circular(12),
                             ),
                             child: Center(
-                              child: Text(
-                                genre,
-                                style: textTheme.titleMedium!.copyWith(
-                                  color: Colors.white,
+                              child: FittedBox(
+                                fit: BoxFit.scaleDown,
+                                child: Text(
+                                  genre,
+                                  style: textTheme.titleMedium!.copyWith(
+                                    color: Colors.white,
+                                  ),
+                                  softWrap: false,
+                                  overflow: TextOverflow.visible,
                                 ),
                               ),
                             ),

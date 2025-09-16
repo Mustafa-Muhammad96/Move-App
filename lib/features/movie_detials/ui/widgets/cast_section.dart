@@ -16,7 +16,7 @@ class CastSection extends StatelessWidget {
       {
         "image": "assets/images/cast2.png",
         "name": "Elizabeth Olsen",
-        "character": "Wanda Maximoff /\nThe Scarlet Witch",
+        "character": "Wanda Maximoff / The Scarlet Witch",
       },
       {
         "image": "assets/images/cast3.png",
@@ -51,32 +51,38 @@ class CastSection extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      actor["image"]!,
-                      width: 70,
-                      height: 70,
-                      fit: BoxFit.cover,
+                    SizedBox(
+                      width: 80,
+                      height: 80,
+                      child: Image.asset(actor["image"]!, fit: BoxFit.cover),
                     ),
                     const SizedBox(width: 12),
 
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Name : ${actor["name"]!}",
-                          style: textTheme.labelLarge!.copyWith(
-                            color: Colors.white,
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Name: ${actor["name"]!}",
+                            style: textTheme.labelLarge!.copyWith(
+                              color: Colors.white,
+                            ),
+                            softWrap: true,
                           ),
-                        ),
-                        Text(
-                          "Character : ${actor["character"]!}",
-                          style: textTheme.labelLarge!.copyWith(
-                            color: Colors.white,
-                            fontSize: 18,
+                          const SizedBox(height: 4),
+                          Text(
+                            "Character: ${actor["character"]!}",
+                            style: textTheme.labelLarge!.copyWith(
+                              color: Colors.white,
+                              fontSize: 18,
+                            ),
+                            softWrap: true,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
