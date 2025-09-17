@@ -3,15 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/home/data/repos/movie_repository.dart';
 import 'package:movie_app/features/home/presentation/cubit/movie_states.dart';
 
-class MovieCubit extends Cubit<MovieStates>{
+class MovieCubit extends Cubit<MovieStates> {
   final MovieRepository _repository = MovieRepository();
-  MovieCubit():super(MovieInitial());
-  Future<void> getAllMovies() async{
+  MovieCubit() : super(MovieInitial());
+  Future<void> getAllMovies() async {
     emit(MoviesLoading());
-    try{
+    try {
       final response = await _repository.getAllMovies();
       emit(MoviesSuccess(response));
-    }on DioException catch (dioError) {
+    } on DioException catch (dioError) {
       if (dioError.response != null) {
         final statusCode = dioError.response?.statusCode;
         final message = dioError.response?.data["message"] ?? "Unknown error";

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/movie_detials/ui/widgets/genres_section.dart';
 import 'package:movie_app/features/movie_detials/ui/widgets/movie_details_app_bar.dart';
 import 'package:movie_app/features/movie_detials/ui/widgets/cast_section.dart';
 import 'package:movie_app/features/movie_detials/ui/widgets/movie_header.dart';
 import 'package:movie_app/features/movie_detials/ui/widgets/screenshots_section.dart';
-import 'package:movie_app/features/movie_detials/ui/widgets/similar_movies_section.dart';
+import 'package:movie_app/features/similar_movies/view_model/similar_movies_view_model.dart';
+import 'package:movie_app/features/similar_movies/views/similar_movies_section.dart';
 import 'package:movie_app/features/movie_detials/ui/widgets/summary_section.dart';
 
 class MovieDetialsScreen extends StatelessWidget {
-  const MovieDetialsScreen({super.key});
+  final int moviesid;
+  const MovieDetialsScreen({super.key, required this.moviesid});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,9 @@ class MovieDetialsScreen extends StatelessWidget {
             children: [
               MovieHeader(),
               ScreenshotsSection(),
-              SimilarMoviesSection(),
+              BlocProvider(
+                create: (_) => SimilarMoviesViewModel()..getSimilarMovies(moviesid),
+                child: SimilarMoviesSection(movieid: moviesid)),
               SummarySection(),
               CastSection(),
               GenresSection(),

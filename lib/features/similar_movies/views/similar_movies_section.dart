@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/core/widgets/loading_indicator.dart';
+import 'package:movie_app/features/similar_movies/data/models/similar_movies_response/movie.dart';
+import 'package:movie_app/features/similar_movies/data/repositories/similar_movies_repository.dart';
+import 'package:movie_app/features/similar_movies/view_model/similar_movies_states.dart';
+import 'package:movie_app/features/similar_movies/view_model/similar_movies_view_model.dart';
 
 class SimilarMoviesSection extends StatelessWidget {
-  const SimilarMoviesSection({super.key});
+  final int movieid;
+  const SimilarMoviesSection({super.key, required this.movieid});
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> movies = [
-      {"image": "assets/images/similar1.png", "rating": "8.5"},
-      {"image": "assets/images/similar2.png", "rating": "7.9"},
-      {"image": "assets/images/similar3.png", "rating": "9.1"},
-      {"image": "assets/images/similar4.png", "rating": "8.0"},
-    ];
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -27,12 +27,24 @@ class SimilarMoviesSection extends StatelessWidget {
             ).textTheme.titleLarge!.copyWith(fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-
-          // ===== الشبكة =====
-          Wrap(
+       
+         BlocBuilder<SimilarMoviesViewModel,SimilarMoviesStates>(
+          builder: (context, state)  {
+            if(state is GetsimilarMoviesLoading){
+              return LoadingIndicator();
+            }else if(state is GetsimilarMoviesError){
+              return Text("something Went wrong",style:Theme.of(context).textTheme.labelLarge!.copyWith(color: AppColors.primary),);
+            }else if(state is GetsimilarMoviesSuccess){
+             List<Movie> movies=state.movies;
+             if(movies.isEmpty){
+              return Text("no similar movies found",style:Theme.of(context).textTheme.labelLarge!.copyWith(color: AppColors.primary),);
+             }
+             return Wrap(
             spacing: 12,
             runSpacing: 12,
             children: movies.map((movie) {
+              final imageURL=movie.mediumCoverImage?? "";
+              final rating=movie.rating?.toString() ?? "";
               return SizedBox(
                 width:
                     (MediaQuery.of(context).size.width - 16 * 2 - 12) /
@@ -42,11 +54,14 @@ class SimilarMoviesSection extends StatelessWidget {
                   child: Stack(
                     children: [
                       // صورة الفيلم
-                      Image.asset(
-                        movie["image"],
-                        fit: BoxFit.cover,
+                     imageURL.isNotEmpty? Image.network(
+                      imageURL,
+                       fit: BoxFit.cover,
                         width: double.infinity,
                         height: 220,
+                      ):
+                      Image.network(
+                      "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
                       ),
 
                       Positioned(
@@ -65,7 +80,7 @@ class SimilarMoviesSection extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                movie["rating"],
+                                rating,
                                 style: Theme.of(context).textTheme.labelSmall!
                                     .copyWith(color: Colors.white),
                               ),
@@ -84,7 +99,13 @@ class SimilarMoviesSection extends StatelessWidget {
                 ),
               );
             }).toList(),
-          ),
+          );
+
+            }else{
+              return SizedBox();
+            }
+          }
+        ),
         ],
       ),
     );

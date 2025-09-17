@@ -24,31 +24,32 @@ class Movie {
   String? dateUploaded;
   int? dateUploadedUnix;
 
-  Movie(
-      {this.id,
-        this.url,
-        this.title,
-        this.titleEnglish,
-        this.titleLong,
-        this.slug,
-        this.year,
-        this.rating,
-        this.runtime,
-        this.genres,
-        this.summary,
-        this.descriptionFull,
-        this.synopsis,
-        this.ytTrailerCode,
-        this.language,
-        this.mpaRating,
-        this.backgroundImage,
-        this.backgroundImageOriginal,
-        this.smallCoverImage,
-        this.mediumCoverImage,
-        this.largeCoverImage,
-        this.state,
-        this.dateUploaded,
-        this.dateUploadedUnix});
+  Movie({
+    this.id,
+    this.url,
+    this.title,
+    this.titleEnglish,
+    this.titleLong,
+    this.slug,
+    this.year,
+    this.rating,
+    this.runtime,
+    this.genres,
+    this.summary,
+    this.descriptionFull,
+    this.synopsis,
+    this.ytTrailerCode,
+    this.language,
+    this.mpaRating,
+    this.backgroundImage,
+    this.backgroundImageOriginal,
+    this.smallCoverImage,
+    this.mediumCoverImage,
+    this.largeCoverImage,
+    this.state,
+    this.dateUploaded,
+    this.dateUploadedUnix,
+  });
 
   Movie.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -60,10 +61,9 @@ class Movie {
     year = json['year'];
     rating = (json["rating"] as num).toDouble();
     runtime = json['runtime'];
-    genres = (json['genres'] as List<dynamic>?)
-        ?.map((e) => e.toString())
-        .toList()
-        ?? [];
+    genres =
+        (json['genres'] as List<dynamic>?)?.map((e) => e.toString()).toList() ??
+        [];
     summary = json['summary'];
     descriptionFull = json['description_full'];
     synopsis = json['synopsis'];

@@ -1,17 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/routes/routes.dart';
+import 'package:movie_app/features/movie_detials/ui/movie_detials_screen.dart';
 
 class ActionItems extends StatelessWidget {
   final String imageUrl;
-
-  const ActionItems({super.key, required this.imageUrl});
+  final int movieId;
+  const ActionItems({super.key, required this.imageUrl, required this.movieId});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.movieDetialsScreen);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => MovieDetialsScreen(moviesid: movieId),
+          ),
+        );
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),

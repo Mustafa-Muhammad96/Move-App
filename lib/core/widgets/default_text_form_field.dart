@@ -10,7 +10,7 @@ class DefaultTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool isPassword;
 
- const DefaultTextFormField({
+  const DefaultTextFormField({
     super.key,
     required this.iconName,
     required this.hintText,

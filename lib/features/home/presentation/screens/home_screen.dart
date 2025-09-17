@@ -13,7 +13,7 @@ import 'package:movie_app/tabs/search/search_tab.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-static const String routeName = '/home';
+  static const String routeName = '/home';
   @override
   State<HomeScreen> createState() => _MyHomePageState();
 }
@@ -21,37 +21,44 @@ static const String routeName = '/home';
 class _MyHomePageState extends State<HomeScreen> {
   late MovieResponse movieResponse;
   int currentIndex = 0;
-   void onClicked(int index) {
-     currentIndex = index;
-    setState(() { });
-   }
+  void onClicked(int index) {
+    currentIndex = index;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider<MovieCubit>(
       create: (_) => MovieCubit()..getAllMovies(),
-      child:  Scaffold(
+      child: Scaffold(
         extendBody: true,
         body: BlocBuilder<MovieCubit, MovieStates>(
-            builder: (context, state){
-              if (state is MoviesLoading) {
-                return LoadingIndicator();
-              } else if (state is MoviesSuccess) {
-                movieResponse = state.moviesResponse;
-                List<Widget> tabs=[
-                  HomeTab(movies: movieResponse.moviesData.movies,),
-                  SearchTab(),
-                  BrowseTab(),
-                  ProfileTab()
-                ];
-                return tabs[currentIndex];
-              } else if (state is MoviesError) {
-                return Center(child: Text(state.message,style: TextStyle(color: AppColors.white),));
-              }
-              return const SizedBox();
-            } ),
+          builder: (context, state) {
+            if (state is MoviesLoading) {
+              return LoadingIndicator();
+            } else if (state is MoviesSuccess) {
+              movieResponse = state.moviesResponse;
+              List<Widget> tabs = [
+                HomeTab(movies: movieResponse.moviesData.movies),
+                SearchTab(),
+                BrowseTab(),
+                ProfileTab(),
+              ];
+              return tabs[currentIndex];
+            } else if (state is MoviesError) {
+              return Center(
+                child: Text(
+                  state.message,
+                  style: TextStyle(color: AppColors.white),
+                ),
+              );
+            }
+            return const SizedBox();
+          },
+        ),
         bottomNavigationBar: Container(
           padding: EdgeInsets.symmetric(vertical: 19),
-          margin: EdgeInsets.only(left: 9, right: 9,bottom: 9),
+          margin: EdgeInsets.only(left: 9, right: 9, bottom: 9),
           decoration: BoxDecoration(
             color: AppColors.darkGray,
             borderRadius: BorderRadius.circular(16),
@@ -59,15 +66,38 @@ class _MyHomePageState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              NavBarIcon(icon: "home", activeIcon: "select_home", index:0, currentIndex: currentIndex ,onTap:()=> onClicked(0)),
-              NavBarIcon(icon: "search", activeIcon: "select_search", index:1, currentIndex:currentIndex ,onTap:()=> onClicked(1)),
-              NavBarIcon(icon: "explore", activeIcon: "select_explore", index:2, currentIndex: currentIndex,onTap:()=> onClicked(2)),
-              NavBarIcon(icon: "profile", activeIcon: "select_profile", index:3, currentIndex: currentIndex ,onTap:()=> onClicked(3)),
+              NavBarIcon(
+                icon: "home",
+                activeIcon: "select_home",
+                index: 0,
+                currentIndex: currentIndex,
+                onTap: () => onClicked(0),
+              ),
+              NavBarIcon(
+                icon: "search",
+                activeIcon: "select_search",
+                index: 1,
+                currentIndex: currentIndex,
+                onTap: () => onClicked(1),
+              ),
+              NavBarIcon(
+                icon: "explore",
+                activeIcon: "select_explore",
+                index: 2,
+                currentIndex: currentIndex,
+                onTap: () => onClicked(2),
+              ),
+              NavBarIcon(
+                icon: "profile",
+                activeIcon: "select_profile",
+                index: 3,
+                currentIndex: currentIndex,
+                onTap: () => onClicked(3),
+              ),
             ],
           ),
         ),
-      )
+      ),
     );
-
   }
 }
