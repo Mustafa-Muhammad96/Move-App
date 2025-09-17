@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/home/data/model/movie.dart';
 
 class CastSection extends StatelessWidget {
-  const CastSection({super.key});
+  final Movie movie;
+  const CastSection({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {

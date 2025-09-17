@@ -10,7 +10,7 @@ class GridViewItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.movieDetialsScreen);
+        Navigator.pushNamed(context, AppRoutes.movieDetailsScreen);
       },
       child: Image.asset(
         "assets/images/${imageName}.png",

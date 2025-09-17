@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/home/data/model/movie.dart';
 
 class ScreenshotsSection extends StatelessWidget {
-  const ScreenshotsSection({super.key});
-
+  final Movie movie;
+  const ScreenshotsSection({super.key, required this.movie});
   @override
   Widget build(BuildContext context) {
     final List<String> screenshots = [

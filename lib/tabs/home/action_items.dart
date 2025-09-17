@@ -4,14 +4,19 @@ import 'package:movie_app/core/routes/routes.dart';
 
 class ActionItems extends StatelessWidget {
   final String imageUrl;
+  final int movieId;
 
-  const ActionItems({super.key, required this.imageUrl});
+  const ActionItems({super.key, required this.imageUrl, required this.movieId});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, AppRoutes.movieDetialsScreen);
+        Navigator.pushNamed(
+          context,
+          AppRoutes.movieDetailsScreen,
+          arguments: movieId,
+        );
       },
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),

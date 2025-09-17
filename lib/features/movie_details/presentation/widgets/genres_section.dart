@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/home/data/model/movie.dart';
 
 class GenresSection extends StatelessWidget {
-  const GenresSection({super.key});
-
+  final Movie movie;
+  const GenresSection({super.key, required this.movie});
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    final List<String> genres = [
-      "Action",
-      "Sci-Fi",
-      "Adventure",
-      "Fantasy",
-      "Horror",
-    ];
+    final List<String> genres = movie.genres ?? [];
 
     List<List<String>> chunkedGenres = [];
     for (int i = 0; i < genres.length; i += 3) {
