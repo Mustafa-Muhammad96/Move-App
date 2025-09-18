@@ -23,7 +23,7 @@ class Movie {
   String? state;
   String? dateUploaded;
   int? dateUploadedUnix;
-
+  int? likeCount;
   Movie({
     this.id,
     this.url,
@@ -49,6 +49,7 @@ class Movie {
     this.state,
     this.dateUploaded,
     this.dateUploadedUnix,
+    this.likeCount = 0,
   });
 
   Movie.fromJson(Map<String, dynamic> json) {
@@ -78,5 +79,6 @@ class Movie {
     state = json['state'];
     dateUploaded = json['date_uploaded'];
     dateUploadedUnix = json['date_uploaded_unix'];
+    likeCount = json['like_count'];
   }
 }

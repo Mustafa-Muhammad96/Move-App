@@ -1,24 +1,27 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
-import 'package:movie_app/core/theme/app_theme.dart';
 import 'package:movie_app/core/widgets/default_elevated_button.dart';
+import 'package:movie_app/features/home/data/model/movie.dart';
 
 class MovieHeader extends StatelessWidget {
-  const MovieHeader({super.key});
+  final Movie movie;
+  const MovieHeader({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
     TextTheme text = Theme.of(context).textTheme;
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
     return Column(
       children: [
         Stack(
           alignment: Alignment.center,
           children: [
-            Image.asset(
-              "assets/images/doctorstrange1.png",
+            CachedNetworkImage(
+              imageUrl: movie.largeCoverImage ?? '',
               height: height * 0.692,
               width: double.infinity,
               fit: BoxFit.cover,
@@ -49,13 +52,13 @@ class MovieHeader extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Doctor Strange in the Multiverse\n of Madness",
+                    movie.title ?? 'Movie',
                     textAlign: TextAlign.center,
                     style: text.titleLarge,
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    "2020",
+                    movie.year.toString(),
                     style: text.labelLarge!.copyWith(
                       color: AppColors.gray,
                       fontWeight: FontWeight.bold,
@@ -83,9 +86,21 @@ class MovieHeader extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              _buildInfoItem("assets/icons/love.svg", "125K", context),
-              _buildInfoItem("assets/icons/clock.svg", "3.2K", context),
-              _buildInfoItem("assets/icons/star.svg", "500", context),
+              _buildInfoItem(
+                "assets/icons/love.svg",
+                movie.likeCount.toString(),
+                context,
+              ),
+              _buildInfoItem(
+                "assets/icons/clock.svg",
+                movie.runtime.toString(),
+                context,
+              ),
+              _buildInfoItem(
+                "assets/icons/star.svg",
+                movie.rating.toString(),
+                context,
+              ),
             ],
           ),
         ),
