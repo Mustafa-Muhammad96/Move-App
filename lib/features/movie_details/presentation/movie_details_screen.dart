@@ -10,6 +10,8 @@ import 'package:movie_app/features/movie_details/presentation/widgets/screenshot
 import 'package:movie_app/features/movie_details/presentation/widgets/similar_movies_section.dart';
 import 'package:movie_app/features/movie_details/presentation/widgets/summary_section.dart';
 
+import '../../similar_movies/view_model/similar_movies_view_model.dart';
+
 class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen({super.key});
 
@@ -52,7 +54,9 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                   children: [
                     MovieHeader(movie: movie),
                     ScreenshotsSection(movie: movie),
-                    SimilarMoviesSection(),
+                    BlocProvider(
+                        create: (_) => SimilarMoviesViewModel()..getSimilarMovies(movieId),
+                        child: SimilarMoviesSection(movieid: movieId)),
                     SummarySection(movie: movie),
                     CastSection(movie: movie),
                     GenresSection(movie: movie),

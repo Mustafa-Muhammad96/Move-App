@@ -23,27 +23,17 @@ class OrDivider extends StatelessWidget {
       children: [
         SizedBox(
           width: lineWidth,
-          child: Divider(
-            thickness: 1,
-            color: lineColor,
-          ),
+          child: Divider(thickness: 1, color: lineColor),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text(
-            text,
-            style: TextStyle(color: textColor),
-          ),
+          child: Text(text, style: TextStyle(color: textColor)),
         ),
         SizedBox(
           width: lineWidth,
-          child: Divider(
-            thickness: 1,
-            color: lineColor,
-          ),
+          child: Divider(thickness: 1, color: lineColor),
         ),
       ],
     );
   }
 }
-

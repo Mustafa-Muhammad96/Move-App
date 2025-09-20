@@ -3,10 +3,11 @@ import 'package:movie_app/features/login/data/data_resources/Remote/remote_data_
 import 'package:movie_app/features/login/data/models/login_request.dart';
 import 'package:movie_app/features/login/data/models/login_response.dart';
 
-class LoginRepository{
-  final LoginRemoteDataResource _remoteDataResource = LoginAPIRemoteDataResource();
+class LoginRepository {
+  final LoginRemoteDataResource _remoteDataResource =
+      LoginAPIRemoteDataResource();
 
-  Future<LoginResponse> login(LoginRequest request) async{
+  Future<LoginResponse> login(LoginRequest request) async {
     final response = await _remoteDataResource.login(request);
     return response;
   }

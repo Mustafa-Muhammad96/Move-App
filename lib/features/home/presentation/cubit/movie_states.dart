@@ -1,12 +1,12 @@
 import 'package:movie_app/features/home/data/model/movie_response.dart';
 
-abstract class MovieStates{}
+abstract class MovieStates {}
 
-class MovieInitial extends MovieStates{}
+class MovieInitial extends MovieStates {}
 
-class MoviesLoading extends MovieStates{}
+class MoviesLoading extends MovieStates {}
 
-class MoviesSuccess extends MovieStates{
+class MoviesSuccess extends MovieStates {
   final MovieResponse moviesResponse;
   MoviesSuccess(this.moviesResponse);
 }

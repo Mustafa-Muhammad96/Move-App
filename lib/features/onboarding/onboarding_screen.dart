@@ -9,31 +9,26 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  PageController controller=PageController();
+  PageController controller = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-         Expanded(
-           child: PageView.builder(
-            controller: controller,
-            itemBuilder: (_,index) =>OnboardingItems(
-              onboardingData: OnboardingData.onboardingList[index],
-              index: index,
-              controller: controller
+          Expanded(
+            child: PageView.builder(
+              controller: controller,
+              itemBuilder: (_, index) => OnboardingItems(
+                onboardingData: OnboardingData.onboardingList[index],
+                index: index,
+                controller: controller,
               ),
-            itemCount:OnboardingData.onboardingList.length ,
-           
+              itemCount: OnboardingData.onboardingList.length,
             ),
-         )
+          ),
         ],
       ),
     );
-  
-  
-  
-  
   }
 }

@@ -84,8 +84,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   },
                                   child: Image.asset(
                                     'assets/images/avatar_$i.png',
-                                    height: MediaQuery.sizeOf(context).height * 0.1,
-                                    width: MediaQuery.sizeOf(context).width * 0.4,
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.1,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.4,
                                   ),
                                 );
                               }).toList(),
@@ -127,7 +129,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           DefaultTextFormField(
                             controller: confirmPasswordController,
                             isPassword: true,
-                            hintText: AppLocalizations.of(context)!.confirmPassword,
+                            hintText: AppLocalizations.of(
+                              context,
+                            )!.confirmPassword,
                             iconName: 'password',
                             validator: (value) =>
                                 FormValidators.validateConfirmPassword(
@@ -161,7 +165,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Text(
-                                AppLocalizations.of(context)!.alreadyHaveAccount,
+                                AppLocalizations.of(
+                                  context,
+                                )!.alreadyHaveAccount,
                                 style: textTheme.titleSmall,
                               ),
                               TextButton(
@@ -170,7 +176,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     context,
                                   ).pushNamed(AppRoutes.loginScreen);
                                 },
-                                child: Text(AppLocalizations.of(context)!.login),
+                                child: Text(
+                                  AppLocalizations.of(context)!.login,
+                                ),
                               ),
                             ],
                           ),
@@ -183,10 +191,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                   ),
-                  if (state is RegisterLoading)
-                    LoadingIndicator()
+                  if (state is RegisterLoading) LoadingIndicator(),
                 ],
-              )
+              ),
             ),
           );
         },
