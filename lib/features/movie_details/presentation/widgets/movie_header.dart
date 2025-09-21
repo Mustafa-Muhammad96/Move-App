@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/widgets/default_elevated_button.dart';
 import 'package:movie_app/features/home/data/model/movie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MovieHeader extends StatelessWidget {
   final Movie movie;
@@ -76,7 +77,16 @@ class MovieHeader extends StatelessWidget {
             label: "Watch",
             backgroundColor: AppColors.red,
             foregroundColor: AppColors.white,
-            onPressed: () {},
+            onPressed: () async {
+              final Uri url = Uri.parse(movie.url!);
+              try{
+                await launchUrl(url, mode: LaunchMode.platformDefault);
+              }catch(e){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Could not launch $url")),
+                );
+              }
+            },
           ),
         ),
 

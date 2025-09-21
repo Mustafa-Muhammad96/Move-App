@@ -39,7 +39,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: const MovieDetailsAppBar(),
+      appBar: MovieDetailsAppBar(movieId: '$movieId',),
       body: SafeArea(
         top: false,
         child: BlocBuilder<MovieDetailsCubit, MovieDetailsState>(

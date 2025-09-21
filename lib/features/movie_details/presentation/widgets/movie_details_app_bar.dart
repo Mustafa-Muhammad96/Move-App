@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
+import 'package:movie_app/features/movie_details/data/data_sources/shared_preferences/watch_list.dart';
 
-class MovieDetailsAppBar extends StatelessWidget
+class MovieDetailsAppBar extends StatefulWidget
     implements PreferredSizeWidget {
   final VoidCallback? onBack;
   final VoidCallback? onSave;
   final String backSvgPath;
   final String saveSvgPath;
   final double iconSize;
+  final String movieId;
 
   const MovieDetailsAppBar({
     super.key,
@@ -16,9 +18,43 @@ class MovieDetailsAppBar extends StatelessWidget
     this.onSave,
     this.backSvgPath = 'assets/icons/arrowBack.svg',
     this.saveSvgPath = 'assets/icons/save.svg',
-    this.iconSize = 22.0,
+    this.iconSize = 22.0, required this.movieId,
   });
 
+  @override
+  State<MovieDetailsAppBar> createState() => _MovieDetailsAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class _MovieDetailsAppBarState extends State<MovieDetailsAppBar> {
+
+  bool isSaved = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkIfSaved();
+  }
+
+  Future<void> _checkIfSaved() async {
+    final saved = await WatchlistService.isMovieSaved(widget.movieId);
+    setState(() {
+      isSaved = saved;
+    });
+  }
+
+  Future<void> _toggleSave() async {
+    if (isSaved) {
+      await WatchlistService.removeMovie(widget.movieId);
+    } else {
+      await WatchlistService.addMovie(widget.movieId);
+    }
+    setState(() {
+      isSaved = !isSaved;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -26,12 +62,11 @@ class MovieDetailsAppBar extends StatelessWidget
       elevation: 0,
 
       leading: IconButton(
-        onPressed: onBack ?? () => Navigator.of(context).maybePop(),
+        onPressed: widget.onBack ?? () => Navigator.of(context).maybePop(),
         icon: SvgPicture.asset(
-          backSvgPath,
-          width: iconSize,
-          height: iconSize,
-          // لو عايز تغير لون الأيقونة استخدم ColorFilter
+          widget.backSvgPath,
+          width: widget.iconSize,
+          height: widget.iconSize,
           colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
           semanticsLabel: 'Back',
         ),
@@ -40,25 +75,14 @@ class MovieDetailsAppBar extends StatelessWidget
       ),
       actions: [
         IconButton(
-          onPressed: onSave ?? () {},
-          icon: SvgPicture.asset(
-            saveSvgPath,
-            width: iconSize,
-            height: iconSize,
-            colorFilter: const ColorFilter.mode(
-              AppColors.white,
-              BlendMode.srcIn,
-            ),
-            semanticsLabel: 'Save',
+          onPressed: _toggleSave,
+          icon: Icon(
+            isSaved ? Icons.bookmark : Icons.bookmark_border,
+            color: Colors.white,
           ),
-          splashRadius: 20,
-          tooltip: 'Save',
         ),
         const SizedBox(width: 8),
       ],
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
