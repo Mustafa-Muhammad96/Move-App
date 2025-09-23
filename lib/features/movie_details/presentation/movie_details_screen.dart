@@ -37,40 +37,45 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: MovieDetailsAppBar(movieId: '$movieId',),
-      body: SafeArea(
-        top: false,
-        child: BlocBuilder<MovieDetailsCubit, MovieDetailsState>(
-          builder: (context, state) {
-            if (state is MovieDetailsLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is MovieDetailsLoaded) {
-              final movie = state.movie;
-              return SingleChildScrollView(
+    return BlocBuilder<MovieDetailsCubit, MovieDetailsState>(
+      builder: (context, state) {
+        if (state is MovieDetailsLoading) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        } else if (state is MovieDetailsLoaded) {
+          final movie = state.movie;
+
+          return Scaffold(
+            extendBodyBehindAppBar: true,
+            appBar: MovieDetailsAppBar(movie: movie), // 🟢 Movie كامل هنا
+            body: SafeArea(
+              top: false,
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     MovieHeader(movie: movie),
                     ScreenshotsSection(movie: movie),
                     BlocProvider(
-                        create: (_) => SimilarMoviesViewModel()..getSimilarMovies(movieId),
-                        child: SimilarMoviesSection(movieid: movieId)),
+                      create: (_) =>
+                          SimilarMoviesViewModel()..getSimilarMovies(movieId),
+                      child: SimilarMoviesSection(movieid: movieId),
+                    ),
                     SummarySection(movie: movie),
                     CastSection(movie: movie),
                     GenresSection(movie: movie),
                   ],
                 ),
-              );
-            } else if (state is MovieDetailsError) {
-              return Center(child: Text(state.message));
-            } else {
-              return const SizedBox.shrink();
-            }
-          },
-        ),
-      ),
+              ),
+            ),
+          );
+        } else if (state is MovieDetailsError) {
+          return Scaffold(body: Center(child: Text(state.message)));
+        } else {
+          return const SizedBox.shrink();
+        }
+      },
     );
   }
 }

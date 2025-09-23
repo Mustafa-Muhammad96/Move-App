@@ -24,6 +24,7 @@ class Movie {
   String? dateUploaded;
   int? dateUploadedUnix;
   int? likeCount;
+
   Movie({
     this.id,
     this.url,
@@ -52,6 +53,7 @@ class Movie {
     this.likeCount = 0,
   });
 
+  // 🟢 من JSON → Movie
   Movie.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     url = json['url'];
@@ -60,7 +62,7 @@ class Movie {
     titleLong = json['title_long'];
     slug = json['slug'];
     year = json['year'];
-    rating = (json["rating"] as num).toDouble();
+    rating = (json["rating"] as num?)?.toDouble();
     runtime = json['runtime'];
     genres =
         (json['genres'] as List<dynamic>?)?.map((e) => e.toString()).toList() ??
@@ -80,5 +82,36 @@ class Movie {
     dateUploaded = json['date_uploaded'];
     dateUploadedUnix = json['date_uploaded_unix'];
     likeCount = json['like_count'];
+  }
+
+  // 🟢 من Movie → JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'url': url,
+      'title': title,
+      'title_english': titleEnglish,
+      'title_long': titleLong,
+      'slug': slug,
+      'year': year,
+      'rating': rating,
+      'runtime': runtime,
+      'genres': genres,
+      'summary': summary,
+      'description_full': descriptionFull,
+      'synopsis': synopsis,
+      'yt_trailer_code': ytTrailerCode,
+      'language': language,
+      'mpa_rating': mpaRating,
+      'background_image': backgroundImage,
+      'background_image_original': backgroundImageOriginal,
+      'small_cover_image': smallCoverImage,
+      'medium_cover_image': mediumCoverImage,
+      'large_cover_image': largeCoverImage,
+      'state': state,
+      'date_uploaded': dateUploaded,
+      'date_uploaded_unix': dateUploadedUnix,
+      'like_count': likeCount,
+    };
   }
 }

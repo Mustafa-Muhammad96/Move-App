@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
-import 'package:movie_app/features/movie_details/data/data_sources/shared_preferences/watch_list.dart';
+import 'package:movie_app/features/home/data/model/movie.dart';
+import 'package:movie_app/tabs/profile/data/storage_helper.dart';
 
-class MovieDetailsAppBar extends StatefulWidget
-    implements PreferredSizeWidget {
+class MovieDetailsAppBar extends StatefulWidget implements PreferredSizeWidget {
   final VoidCallback? onBack;
-  final VoidCallback? onSave;
-  final String backSvgPath;
-  final String saveSvgPath;
   final double iconSize;
-  final String movieId;
+  final Movie movie; // 🟢 Movie كامل
 
   const MovieDetailsAppBar({
     super.key,
     this.onBack,
-    this.onSave,
-    this.backSvgPath = 'assets/icons/arrowBack.svg',
-    this.saveSvgPath = 'assets/icons/save.svg',
-    this.iconSize = 22.0, required this.movieId,
+    this.iconSize = 22.0,
+    required this.movie,
   });
 
   @override
@@ -29,46 +24,49 @@ class MovieDetailsAppBar extends StatefulWidget
 }
 
 class _MovieDetailsAppBarState extends State<MovieDetailsAppBar> {
-
   bool isSaved = false;
 
   @override
   void initState() {
     super.initState();
     _checkIfSaved();
+
+    // 🟢 أول ما تفتح تفاصيل الفيلم -> ضيفه في History
+    StorageHelper.addToHistory(widget.movie);
   }
 
+  // 🟢 تحقق إذا الفيلم موجود في Watchlist
   Future<void> _checkIfSaved() async {
-    final saved = await WatchlistService.isMovieSaved(widget.movieId);
+    final saved = await StorageHelper.isMovieInWatchlist(widget.movie.id);
     setState(() {
       isSaved = saved;
     });
   }
 
+  // 🟢 إضافة أو إزالة الفيلم من Watchlist
   Future<void> _toggleSave() async {
     if (isSaved) {
-      await WatchlistService.removeMovie(widget.movieId);
+      await StorageHelper.removeFromWatchlist(widget.movie.id);
     } else {
-      await WatchlistService.addMovie(widget.movieId);
+      await StorageHelper.addToWatchlist(widget.movie);
     }
     setState(() {
       isSaved = !isSaved;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
-
       leading: IconButton(
         onPressed: widget.onBack ?? () => Navigator.of(context).maybePop(),
         icon: SvgPicture.asset(
-          widget.backSvgPath,
+          'assets/icons/arrowBack.svg',
           width: widget.iconSize,
           height: widget.iconSize,
           colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
-          semanticsLabel: 'Back',
         ),
         splashRadius: 20,
         tooltip: 'Back',
