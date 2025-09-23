@@ -32,9 +32,12 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    final List<Movie> latestMovies = List.from(
-      widget.movies,
-    )..sort((a, b) => b.dateUploadedUnix!.compareTo(a.dateUploadedUnix as num));
+    final List<Movie> latestMovies = List.from(widget.movies)
+      ..sort((a, b) {
+        final bDate = b.dateUploadedUnix ?? 0;
+        final aDate = a.dateUploadedUnix ?? 0;
+        return bDate.compareTo(aDate);
+      });
 
     final genres = getAllGenres(widget.movies).toList();
     final randomGenre = genres[Random().nextInt(genres.length)];
