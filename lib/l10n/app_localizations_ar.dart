@@ -71,4 +71,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get verifyEmail => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get oldPassword => 'كلمة السر القديمة';
+
+  @override
+  String get newPassword => 'كلمة السر الجديدة';
+
+  @override
+  String get updatePassword => 'تحديث كلمة السر';
+
+  @override
+  String get editProfile => 'تعديل الملف الشخصي';
+
+  @override
+  String get exit => 'خروج';
 }
