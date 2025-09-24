@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+// ignore: must_be_immutable
 class NavBarIcon extends StatelessWidget {
   String icon;
   String activeIcon;
@@ -9,6 +10,7 @@ class NavBarIcon extends StatelessWidget {
   VoidCallback onTap;
 
   NavBarIcon({
+    super.key,
     required this.icon,
     required this.activeIcon,
     required this.index,

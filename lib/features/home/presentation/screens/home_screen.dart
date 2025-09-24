@@ -41,7 +41,7 @@ class _MyHomePageState extends State<HomeScreen> {
               List<Widget> tabs = [
                 HomeTab(movies: movieResponse.moviesData.movies),
                 SearchTab(),
-                BrowseTab(),
+                BrowseTab(movies: movieResponse.moviesData.movies),
                 ProfileTab(),
               ];
               return tabs[currentIndex];

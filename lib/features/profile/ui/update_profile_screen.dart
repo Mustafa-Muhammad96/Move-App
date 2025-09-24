@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/core/theme/app_colors.dart';
 import 'package:movie_app/core/widgets/default_elevated_button.dart';
 import 'package:movie_app/core/widgets/default_text_form_field.dart';
